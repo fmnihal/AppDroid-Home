@@ -1,0 +1,362 @@
+[
+  {
+    "image": "https://img.icons8.com/color/452/notion.png",
+    "title": "Notion",
+    "companyName": "Notion Labs, Inc.",
+    "id": 1,
+    "description": "Notion is an all-in-one workspace where you can write, plan, collaborate, and get organized. It allows you to manage notes, databases, and tasks in one place and switch easily between different layouts such as tables, boards, and calendars.\n\nYou can use Notion for everything from personal journaling to full team project management. Its real-time collaboration, template library, and flexible linking make it one of the most customizable productivity platforms available.",
+    "size": 70.1,
+    "reviews": 350,
+    "ratingAvg": 4.7,
+    "downloads": 500000,
+    "ratings": [
+      { "name": "1 star", "count": 12 },
+      { "name": "2 star", "count": 18 },
+      { "name": "3 star", "count": 40 },
+      { "name": "4 star", "count": 100 },
+      { "name": "5 star", "count": 180 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/todoist.png",
+    "title": "Todoist",
+    "companyName": "Doist",
+    "id": 2,
+    "description": "Todoist is a task manager designed to help you organize and prioritize your tasks efficiently. You can create projects, set due dates, track recurring tasks, and delegate assignments to team members with ease.\n\nIt integrates with popular services like Google Calendar and Slack, allowing seamless productivity tracking. The minimalist interface, focus features, and productivity streak system make Todoist a favorite among professionals and students alike.",
+    "size": 54.7,
+    "reviews": 420,
+    "ratingAvg": 4.6,
+    "downloads": 600000,
+    "ratings": [
+      { "name": "1 star", "count": 14 },
+      { "name": "2 star", "count": 22 },
+      { "name": "3 star", "count": 55 },
+      { "name": "4 star", "count": 120 },
+      { "name": "5 star", "count": 209 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/forest.png",
+    "title": "Forest: Stay Focused",
+    "companyName": "Seekrtech",
+    "id": 3,
+    "description": "Forest helps you stay away from your phone and focus on real tasks by planting virtual trees as you work. If you stay on task, your tree grows; if you leave the app early, the tree dies, making focus a fun and rewarding habit.\n\nOver time, your focused sessions grow into a forest symbolizing your productivity journey. Forest also partners with tree-planting organizations, turning your focus time into environmental action.",
+    "size": 28.4,
+    "reviews": 300,
+    "ratingAvg": 4.8,
+    "downloads": 400000,
+    "ratings": [
+      { "name": "1 star", "count": 7 },
+      { "name": "2 star", "count": 10 },
+      { "name": "3 star", "count": 25 },
+      { "name": "4 star", "count": 90 },
+      { "name": "5 star", "count": 168 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/google-keep.png",
+    "title": "Google Keep",
+    "companyName": "Google LLC",
+    "id": 4,
+    "description": "Google Keep lets you capture thoughts, lists, and reminders quickly and visually. You can take notes using text, voice, or images, and color-code or label them for better organization.\n\nWith Google account sync, your notes are instantly available across devices. It integrates neatly with Google Drive and Calendar, making it a simple yet powerful tool for managing day-to-day ideas and tasks.",
+    "size": 30.2,
+    "reviews": 260,
+    "ratingAvg": 4.5,
+    "downloads": 750000,
+    "ratings": [
+      { "name": "1 star", "count": 9 },
+      { "name": "2 star", "count": 15 },
+      { "name": "3 star", "count": 35 },
+      { "name": "4 star", "count": 100 },
+      { "name": "5 star", "count": 101 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/microsoft-onenote.png",
+    "title": "Microsoft OneNote",
+    "companyName": "Microsoft",
+    "id": 5,
+    "description": "Microsoft OneNote provides a digital notebook experience that helps you capture, organize, and share notes easily. You can combine text, images, audio recordings, and handwritten notes in one place.\n\nIt syncs across devices through Microsoft 365, allowing you to collaborate in real time with others. OneNote’s section and page system makes it ideal for managing projects, lecture notes, or brainstorming sessions.",
+    "size": 65.0,
+    "reviews": 310,
+    "ratingAvg": 4.4,
+    "downloads": 550000,
+    "ratings": [
+      { "name": "1 star", "count": 10 },
+      { "name": "2 star", "count": 18 },
+      { "name": "3 star", "count": 28 },
+      { "name": "4 star", "count": 120 },
+      { "name": "5 star", "count": 134 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/evernote.png",
+    "title": "Evernote",
+    "companyName": "Evernote Corporation",
+    "id": 6,
+    "description": "Evernote is a powerful note-taking and organization app that helps you capture ideas, manage projects, and store important documents in one searchable space. You can attach files, images, and voice recordings to notes.\n\nThe app syncs across devices and offers tagging, handwriting recognition, and templates for meetings or journals. It’s widely used for both personal organization and professional productivity.",
+    "size": 60.5,
+    "reviews": 380,
+    "ratingAvg": 4.3,
+    "downloads": 700000,
+    "ratings": [
+      { "name": "1 star", "count": 22 },
+      { "name": "2 star", "count": 30 },
+      { "name": "3 star", "count": 40 },
+      { "name": "4 star", "count": 110 },
+      { "name": "5 star", "count": 178 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/microsoft-to-do-app.png",
+    "title": "Microsoft To Do",
+    "companyName": "Microsoft",
+    "id": 7,
+    "description": "Microsoft To Do is a simple task management tool that helps you plan your day and organize work. It offers smart suggestions, due dates, notes, and sub-tasks for better planning.\n\nThe app integrates seamlessly with Outlook and Microsoft 365, allowing you to manage your personal and professional tasks together. Its clean design and daily planning features make it an excellent replacement for Wunderlist.",
+    "size": 33.8,
+    "reviews": 270,
+    "ratingAvg": 4.5,
+    "downloads": 480000,
+    "ratings": [
+      { "name": "1 star", "count": 12 },
+      { "name": "2 star", "count": 18 },
+      { "name": "3 star", "count": 40 },
+      { "name": "4 star", "count": 90 },
+      { "name": "5 star", "count": 110 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/trello.png",
+    "title": "Trello",
+    "companyName": "Atlassian",
+    "id": 8,
+    "description": "Trello is a visual project management app that uses boards, lists, and cards to organize your work and ideas. It’s perfect for both solo task management and collaborative team projects.\n\nYou can add checklists, attachments, labels, and deadlines, and integrate with services like Slack or Google Drive. Its simplicity and flexibility make Trello one of the most popular tools for workflow organization.",
+    "size": 45.6,
+    "reviews": 410,
+    "ratingAvg": 4.6,
+    "downloads": 650000,
+    "ratings": [
+      { "name": "1 star", "count": 15 },
+      { "name": "2 star", "count": 20 },
+      { "name": "3 star", "count": 45 },
+      { "name": "4 star", "count": 120 },
+      { "name": "5 star", "count": 210 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/asana.png",
+    "title": "Asana",
+    "companyName": "Asana, Inc.",
+    "id": 9,
+    "description": "Asana helps teams organize work, track progress, and meet deadlines efficiently. You can create projects, assign tasks, set goals, and track completion rates in a visual dashboard.\n\nIts timeline and workflow views make complex team collaboration simple. Asana’s integration with hundreds of other tools makes it a cornerstone for business productivity and task management.",
+    "size": 50.4,
+    "reviews": 330,
+    "ratingAvg": 4.5,
+    "downloads": 550000,
+    "ratings": [
+      { "name": "1 star", "count": 18 },
+      { "name": "2 star", "count": 22 },
+      { "name": "3 star", "count": 36 },
+      { "name": "4 star", "count": 110 },
+      { "name": "5 star", "count": 144 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/slack.png",
+    "title": "Slack",
+    "companyName": "Slack Technologies",
+    "id": 10,
+    "description": "Slack is a communication and collaboration platform that brings team conversations, files, and tools into one place. You can create channels for projects, topics, or departments.\n\nWith integrations for thousands of apps, Slack simplifies team workflows, automates notifications, and allows easy sharing of media and documents — reducing email clutter and improving productivity.",
+    "size": 67.2,
+    "reviews": 490,
+    "ratingAvg": 4.4,
+    "downloads": 850000,
+    "ratings": [
+      { "name": "1 star", "count": 25 },
+      { "name": "2 star", "count": 30 },
+      { "name": "3 star", "count": 55 },
+      { "name": "4 star", "count": 130 },
+      { "name": "5 star", "count": 250 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/dropbox.png",
+    "title": "Dropbox",
+    "companyName": "Dropbox, Inc.",
+    "id": 11,
+    "description": "Dropbox allows you to store, sync, and share files securely across devices. It’s a reliable cloud storage service with offline access and automatic photo backups.\n\nCollaboration tools like Dropbox Paper make it more than just storage — you can co-edit documents and manage shared folders with ease, ideal for teams managing files remotely.",
+    "size": 60.3,
+    "reviews": 350,
+    "ratingAvg": 4.3,
+    "downloads": 900000,
+    "ratings": [
+      { "name": "1 star", "count": 20 },
+      { "name": "2 star", "count": 30 },
+      { "name": "3 star", "count": 45 },
+      { "name": "4 star", "count": 100 },
+      { "name": "5 star", "count": 155 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/google-drive.png",
+    "title": "Google Drive",
+    "companyName": "Google LLC",
+    "id": 12,
+    "description": "Google Drive provides secure cloud storage for your files with 15GB of free space. You can upload documents, photos, and videos, and access them from any device.\n\nIt integrates seamlessly with Google Docs, Sheets, and Slides, allowing collaborative editing and instant synchronization, making it a productivity essential for both students and professionals.",
+    "size": 55.1,
+    "reviews": 470,
+    "ratingAvg": 4.6,
+    "downloads": 1200000,
+    "ratings": [
+      { "name": "1 star", "count": 22 },
+      { "name": "2 star", "count": 26 },
+      { "name": "3 star", "count": 50 },
+      { "name": "4 star", "count": 120 },
+      { "name": "5 star", "count": 252 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/zoom.png",
+    "title": "Zoom Cloud Meetings",
+    "companyName": "Zoom Video Communications, Inc.",
+    "id": 13,
+    "description": "Zoom is a leading video conferencing app that allows seamless virtual meetings, webinars, and team collaborations. You can host HD video calls with screen sharing and recording.\n\nIts breakout rooms, calendar integration, and mobile optimization make it ideal for remote teams, education, and personal communication alike.",
+    "size": 68.3,
+    "reviews": 490,
+    "ratingAvg": 4.5,
+    "downloads": 2000000,
+    "ratings": [
+      { "name": "1 star", "count": 28 },
+      { "name": "2 star", "count": 36 },
+      { "name": "3 star", "count": 45 },
+      { "name": "4 star", "count": 120 },
+      { "name": "5 star", "count": 261 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/monday.png",
+    "title": "Monday.com",
+    "companyName": "monday.com",
+    "id": 14,
+    "description": "Monday.com is a flexible project management tool that helps teams plan, track, and deliver work efficiently. It offers visual boards, automation, and time tracking to simplify workflows.\n\nYou can create custom dashboards, integrate with popular tools, and get insights with progress tracking. It’s ideal for both small teams and large enterprises managing complex projects.",
+    "size": 57.4,
+    "reviews": 380,
+    "ratingAvg": 4.4,
+    "downloads": 430000,
+    "ratings": [
+      { "name": "1 star", "count": 17 },
+      { "name": "2 star", "count": 25 },
+      { "name": "3 star", "count": 38 },
+      { "name": "4 star", "count": 120 },
+      { "name": "5 star", "count": 180 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/clickup.png",
+    "title": "ClickUp",
+    "companyName": "Mango Technologies, Inc.",
+    "id": 15,
+    "description": "ClickUp centralizes tasks, docs, goals, and communication in one productivity suite. It’s highly customizable with features like task automation, Gantt charts, and real-time chat.\n\nIt works across web, mobile, and desktop, helping teams boost productivity through unified workflows and time tracking.",
+    "size": 62.8,
+    "reviews": 420,
+    "ratingAvg": 4.5,
+    "downloads": 510000,
+    "ratings": [
+      { "name": "1 star", "count": 15 },
+      { "name": "2 star", "count": 20 },
+      { "name": "3 star", "count": 42 },
+      { "name": "4 star", "count": 115 },
+      { "name": "5 star", "count": 228 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/calendly.png",
+    "title": "Calendly",
+    "companyName": "Calendly LLC",
+    "id": 16,
+    "description": "Calendly simplifies scheduling by eliminating back-and-forth emails. You can set your availability, share a link, and let others book meetings automatically synced with your calendar.\n\nIt integrates with Google, Outlook, and Zoom, helping professionals and teams coordinate efficiently without wasting time on logistics.",
+    "size": 29.4,
+    "reviews": 310,
+    "ratingAvg": 4.6,
+    "downloads": 420000,
+    "ratings": [
+      { "name": "1 star", "count": 8 },
+      { "name": "2 star", "count": 12 },
+      { "name": "3 star", "count": 30 },
+      { "name": "4 star", "count": 100 },
+      { "name": "5 star", "count": 160 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/clockify.png",
+    "title": "Clockify",
+    "companyName": "COING Inc.",
+    "id": 17,
+    "description": "Clockify is a time-tracking tool for freelancers and teams. You can track hours, categorize projects, and generate detailed productivity reports easily.\n\nIt’s free and works across devices with offline support, making it a favorite for professionals who bill by the hour or want to understand their time usage.",
+    "size": 35.2,
+    "reviews": 280,
+    "ratingAvg": 4.6,
+    "downloads": 390000,
+    "ratings": [
+      { "name": "1 star", "count": 7 },
+      { "name": "2 star", "count": 11 },
+      { "name": "3 star", "count": 29 },
+      { "name": "4 star", "count": 90 },
+      { "name": "5 star", "count": 143 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/zoom-notes.png",
+    "title": "Zoho Notebook",
+    "companyName": "Zoho Corporation",
+    "id": 18,
+    "description": "Zoho Notebook provides a beautifully designed note-taking experience where you can capture ideas as text, images, audio, or sketches. Notes are grouped as cards for easy organization.\n\nIt syncs across devices and supports cloud backup, tags, and password protection, making it a stylish and secure productivity companion.",
+    "size": 47.6,
+    "reviews": 250,
+    "ratingAvg": 4.4,
+    "downloads": 310000,
+    "ratings": [
+      { "name": "1 star", "count": 10 },
+      { "name": "2 star", "count": 15 },
+      { "name": "3 star", "count": 40 },
+      { "name": "4 star", "count": 90 },
+      { "name": "5 star", "count": 95 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/rescue-time.png",
+    "title": "RescueTime",
+    "companyName": "RescueTime, Inc.",
+    "id": 19,
+    "description": "RescueTime automatically tracks the time you spend on apps and websites to help you understand your habits. It provides detailed reports and productivity scores.\n\nYou can set goals, block distractions, and receive alerts when you spend too much time off-task — making it ideal for boosting focus and time awareness.",
+    "size": 41.9,
+    "reviews": 320,
+    "ratingAvg": 4.3,
+    "downloads": 270000,
+    "ratings": [
+      { "name": "1 star", "count": 11 },
+      { "name": "2 star", "count": 18 },
+      { "name": "3 star", "count": 40 },
+      { "name": "4 star", "count": 120 },
+      { "name": "5 star", "count": 131 }
+    ]
+  },
+  {
+    "image": "https://img.icons8.com/color/452/grammarly.png",
+    "title": "Grammarly Keyboard",
+    "companyName": "Grammarly, Inc.",
+    "id": 20,
+    "description": "Grammarly Keyboard helps you write clear and effective text by checking grammar, punctuation, and tone in real time. It works across apps and supports multiple languages.\n\nBeyond error correction, it suggests phrasing improvements and clarity adjustments, making it perfect for professionals, students, and writers aiming for polished communication.",
+    "size": 72.5,
+    "reviews": 500,
+    "ratingAvg": 4.7,
+    "downloads": 1300000,
+    "ratings": [
+      { "name": "1 star", "count": 25 },
+      { "name": "2 star", "count": 30 },
+      { "name": "3 star", "count": 45 },
+      { "name": "4 star", "count": 120 },
+      { "name": "5 star", "count": 280 }
+    ]
+  }
+]
