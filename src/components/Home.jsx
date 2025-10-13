@@ -3,13 +3,13 @@ import React from 'react';
 const Home = () => {
     return (
         <div>
-            <div id='banner' className='my-20 bg-purple text-white'>
-                <h1>We Build <span>Productive</span> Apps</h1>
+            <div id='banner' className='my-20 bg-purple text-white w-11/12 mx-auto text-center'>
+                <h1 className='mb-4'>We Build <span>Productive</span> Apps</h1>
                 <p>At HERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
                 <img src="../assets/hero.png" alt="" />
                 <div className='bg-purple p-20'>
                     <h1 className='mb-10'>Trusted by Millions, Built for You</h1>
-                    <div>
+                    <div className='flex '>
                         <div>
                             <p>Total Downloads</p>
                             <h1>209.6M</h1>
