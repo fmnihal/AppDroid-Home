@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div className='bg-[#001931] py-8 text-white'>
             {/* <h1>Footer</h1> */}
-            <div className='flex justify-around'>
+            <div className='flex justify-around h-16'>
                 <div>
                     <img src="../assets/logo.png" alt="" />
                     <h1>HERO.IO</h1>

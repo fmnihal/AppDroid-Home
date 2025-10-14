@@ -22,7 +22,7 @@ const Header = () => {
                     </ul>
                 </nav>
                 <Link to='https://github.com/fmnihal'>
-                <button className='btn bg-purple-600 text-white hover:bg-purple-700 border-none'><Github /> Contribute</button>
+                <button className='btn bg-purple-600 text-white hover:bg-purple-700 border-none text-xl'><Github /> Contribute</button>
                 </Link>
             </div>
             

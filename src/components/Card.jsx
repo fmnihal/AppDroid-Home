@@ -19,7 +19,7 @@ const Card = ({app}) => {
             <div className='bg-[#d9d9d9] rounded-md flex items-center justify-center overflow-hidden'>
                 <img src={app.image} alt={app.title} className="h-30 w-20 object-cover" />
             </div>
-            <h1 className='text-xl my-4'>{app.title}</h1>
+            <h1 className='text-xl my-4 font-medium'>{app.title}</h1>
             <div className='flex justify-between'>
                 <p className='flex items-center gap-1 px-3 py-2 rounded-sm bg-[#f1f5e8] text-[#00d390]'>
                     <span><img src={iconDownloads} alt="Downloads" className="h-4 w-4" /></span>

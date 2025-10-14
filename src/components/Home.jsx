@@ -33,8 +33,15 @@ const Home = () => {
                 <h1 className='mb-4 text-7xl'>We Build <span className='text-purple-700'>Productive</span> Apps</h1>
                 <p className='max-w-3xl mx-auto mb-5'>At AppDroid, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
                 <div className='mb-5 space-x-5'>
-                    <button className="btn btn-outline">Play Store</button>
-                    <button className="btn btn-outline">App Store</button>
+                    <Link to='https://play.google.com/store'>
+                        <button className="btn btn-outline">Play Store</button>
+                    </Link>
+                    <Link to='https://www.apple.com/app-store/'>
+                        <button className="btn btn-outline">App Store</button>
+                    </Link>
+                    <Link to='https://f-droid.org/en/packages/'>
+                        <button className="btn btn-outline">F-Droid</button>
+                    </Link>
                 </div>
                 <img src={heroImg} alt="" className='mx-auto block' />
             </div>
@@ -70,7 +77,7 @@ const Home = () => {
                 {loading ? (
                     <p className='text-center text-xl'>Loading apps...</p>
                 ) : (
-                    <div className='grid justify-items-center gap-y-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                    <div className='grid justify-items-center gap-y-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                         {featuredApps.map((app) => (
                             <Card key={app.id} app={app} />
                         ))}
