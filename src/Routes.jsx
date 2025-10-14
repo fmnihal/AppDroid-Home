@@ -3,6 +3,7 @@ import Root from "./components/Root";
 import Home from "./components/Home";
 import Apps from "./components/Apps";
 import Installation from "./components/Installation";
+import ErrorPage from './components/ErrorPage';
 
 export const router = createBrowserRouter([
     {
@@ -14,12 +15,16 @@ export const router = createBrowserRouter([
                 element:<Home></Home>,
             },
             {
-                path: "apps", 
+                path: "apps",
                 element: <Apps />,
             },
             {
                 path: "installation",
                 element: <Installation />,
+            },
+            {
+                path: "*",
+                element: <ErrorPage />,
             },
         ]
     },

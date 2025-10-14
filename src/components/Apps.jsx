@@ -33,7 +33,7 @@ const Apps = () => {
     }
     
     return (
-        <div className='w-11/12 mx-auto border-2 border-red-500'>
+        <div className='w-11/12 mx-auto border-2 border-red-500 bg-[#f1f5e8]'>
             <h1 className='text-[48px] text-center'>Our All Applications</h1>
             <p className='text-center'>Explore All Apps on the Market developed by us. We code for Millions</p>
             <div className='flex justify-between'>
@@ -55,7 +55,7 @@ const Apps = () => {
                 </label>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {apps.map((app) => (
                     <Card key={app.id} app={app} />
                 ))}
