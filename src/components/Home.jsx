@@ -1,33 +1,105 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import heroImg from '../assets/hero.png';
+import Card from './Card';
 
 const Home = () => {
+
+    const [featuredApps, setFeaturedApps] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [totalApps, setTotalApps] = useState(0);
+    useEffect(() => {
+        fetch('/appsData.json') // Fetch from the root, as it's in the public folder
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Failed to fetch app data');
+                }
+                return res.json();
+            })
+            .then(data => {
+                // Slice the data to get only the first 8 apps
+                setFeaturedApps(data.slice(0, 8));
+                setTotalApps(data.length); // Get the total count
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error("Error loading app data:", error);
+                setLoading(false);
+            });
+    }, []);
+    
     return (
-        <div className='w-11/12 mx-auto'>
-            <div id='banner' className='my-20 bg-purple text-white w-11/12 mx-auto text-center'>
-                <h1 className='mb-4'>We Build <span>Productive</span> Apps</h1>
-                <p>At HERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
-                <img src="../assets/hero.png" alt="" />
-                <div className='bg-purple p-20'>
-                    <h1 className='mb-10'>Trusted by Millions, Built for You</h1>
-                    <div className='flex '>
-                        <div>
-                            <p>Total Downloads</p>
-                            <h1>209.6M</h1>
-                            <p>21% More Than Last Month</p>
+        <div className='bg-[#f1f5e8]'>
+            <div id='banner' className='mt-20 bg-purple text-black w-11/12 container mx-auto text-center'>
+                <h1 className='mb-4 text-7xl'>We Build <span>Productive</span> Apps</h1>
+                <p className='max-w-3xl mx-auto mb-5'>At HERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
+                <div className='mb-5 space-x-5'>
+                    <button className="btn btn-outline">Play Store</button>
+                    <button className="btn btn-outline">App Store</button>
+                </div>
+                <img src={heroImg} alt="" className='mx-auto block' />
+            </div>
+
+            <div className='bg-purple-800 py-10 text-white w-full'>
+                {/* NEW: Start a centered container to constrain content width and center text */}
+                <div className='container mx-auto px-4'> 
+                    {/* CHANGED: Added styling and text-center for the main stats heading */}
+                    <h1 className='mb-10 text-3xl font-bold text-center'>Trusted by Millions, Built for You</h1> 
+                    
+                    {/* CHANGED: Added justify-around to space stats evenly */}
+                    <div className='flex justify-around items-center text-center'> 
+                        {/* Stat Block 1 */}
+                        <div className='p-4'>
+                            <p className='text-lg'>Total Downloads</p>
+                            <h1 className='text-4xl font-extrabold mt-1'>209.6M</h1> {/* CHANGED: Added styling */}
+                            <p className='text-green-300 text-sm mt-1'>21% More Than Last Month</p> {/* CHANGED: Added styling */}
                         </div>
-                        <div>
-                            <p>Total Reviews</p>
-                            <h1>906K</h1>
-                            <p>46% More Than Last Month</p>
+                        {/* Stat Block 2 */}
+                        <div className='p-4'>
+                            <p className='text-lg'>Total Reviews</p>
+                            <h1 className='text-4xl font-extrabold mt-1'>906K</h1> {/* CHANGED: Added styling */}
+                            <p className='text-green-300 text-sm mt-1'>46% More Than Last Month</p> {/* CHANGED: Added styling */}
                         </div>
-                        <div>
-                            <p>Active Apps</p>
-                            <h1>132+</h1>
-                            <p>31 More Will Launch</p>
+                        {/* Stat Block 3 */}
+                        <div className='p-4'>
+                            <p className='text-lg'>Active Apps</p>
+                            <h1 className='text-4xl font-extrabold mt-1'>132+</h1> {/* CHANGED: Added styling */}
+                            <p className='text-green-300 text-sm mt-1'>31 More Will Launch</p> {/* CHANGED: Added styling */}
                         </div>
                     </div>
+                </div> {/* NEW: Close the centered container */}
+            </div>
+            
+            {/* NEW: Added container for centering the '8 apps' text */}
+            <div className='container mx-auto px-4 py-8'>
+                <p className='text-center'>8 apps</p> {/* CHANGED: Used p tag and added text-center */}
+            </div>
+
+
+            {/* =================================================== */}
+            {/* FEATURED APPS SECTION */}
+            {/* =================================================== */}
+            <div className='container mx-auto px-4 py-12'>
+                <h2 className='text-4xl font-bold text-center mb-10'>Trending Apps</h2>
+                <p>Explore All Trending Apps on the Market developed by us</p>
+                {loading ? (
+                    <p className='text-center text-xl'>Loading apps...</p>
+                ) : (
+                    // CHANGED: Adjusted grid columns to fit the width of your Card component (285px wide card)
+                    // The 'grid-cols-4' ensures 4 cards per row for desktop, displaying 8 apps in two neat rows.
+                    <div className='grid justify-items-center gap-y-10 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
+                        {featuredApps.map((app) => (
+                            <Card key={app.id} app={app} /> // CHANGED: Using 'Card' component
+                        ))}
+                    </div>
+                )}
+                <div className='text-center mt-12'>
+                    {/* Displaying total count from fetched data */}
+                    <button className="btn btn-primary bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-lg shadow-md">
+                        Show All ({totalApps}) 🚀
+                    </button>
                 </div>
             </div>
+
         </div>
     );
 };

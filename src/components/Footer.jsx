@@ -2,12 +2,12 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='bg-[#001931] py-8'>
+        <div className='bg-[#001931] py-8 text-white'>
             {/* <h1>Footer</h1> */}
             <div className='flex justify-around'>
                 <div>
                     <img src="../assets/logo.png" alt="" />
-                    <h1 className='text-white'>HERO.IO</h1>
+                    <h1>HERO.IO</h1>
                 </div>
                 <div>
                     <h1>Social Links</h1>

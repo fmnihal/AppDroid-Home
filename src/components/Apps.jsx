@@ -33,11 +33,11 @@ const Apps = () => {
     }
     
     return (
-        <div className='w-11/12 mx-auto'>
-            <h1 className='text-[48px]'>Our All Applications</h1>
-            <p>Explore All Apps on the Market developed by us. We code for Millions</p>
+        <div className='w-11/12 mx-auto border-2 border-red-500'>
+            <h1 className='text-[48px] text-center'>Our All Applications</h1>
+            <p className='text-center'>Explore All Apps on the Market developed by us. We code for Millions</p>
             <div className='flex justify-between'>
-                <h2>132 Apps</h2>
+                <h2 className='border-2 border-red-500'>132 Apps</h2>
                 <label className="input">
                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g

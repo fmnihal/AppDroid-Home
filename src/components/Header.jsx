@@ -20,9 +20,12 @@ const Header = () => {
         // </div>
 
         // <header className="navbar bg-base-100">
-        <header className="flex justify-between items-center w-full py-4 px-8 bg-white shadow-md">
+        <header className="flex justify-between items-center w-11/12 mx-auto py-4 px-8 bg-white">
             <div className="flex items-center gap-2">
-                <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-gray-800">AppDroid</Link>
+                <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-gray-800">
+                    <img src={logoImg} alt="" className='h-10' />
+                    <h1 className='text-purple'>AppDroid</h1>
+                </Link>
             </div>
             <nav className="flex-1 flex justify-center">
                 <ul className="menu menu-horizontal p-0 gap-8 text-lg font-medium">
