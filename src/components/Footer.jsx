@@ -1,4 +1,7 @@
 import React from 'react';
+import {Facebook} from 'lucide-react';
+import { Linkedin } from 'lucide-react';
+import { Twitter } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -11,10 +14,10 @@ const Footer = () => {
                 </div>
                 <div>
                     <h1>Social Links</h1>
-                    <ul className='flex'>
-                        <li>X</li>
-                        <li>in</li>
-                        <li>Fb</li>
+                    <ul className='flex gap-2'>
+                        <li><Twitter color="#ffffff" /></li>
+                        <li><Linkedin color="#ffffff" /></li>
+                        <li><Facebook color="#fafafa" /></li>
                     </ul>
                 </div>
             </div>

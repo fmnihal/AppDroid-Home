@@ -29,9 +29,9 @@ const Home = () => {
     
     return (
         <div className='bg-[#f1f5e8]'>
-            <div id='banner' className='mt-20 bg-purple text-black w-11/12 container mx-auto text-center'>
-                <h1 className='mb-4 text-7xl'>We Build <span>Productive</span> Apps</h1>
-                <p className='max-w-3xl mx-auto mb-5'>At HERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
+            <div id='banner' className='pt-10 bg-purple text-black w-11/12 container mx-auto text-center'>
+                <h1 className='mb-4 text-7xl'>We Build <span className='text-purple-700'>Productive</span> Apps</h1>
+                <p className='max-w-3xl mx-auto mb-5'>At AppDroid, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
                 <div className='mb-5 space-x-5'>
                     <button className="btn btn-outline">Play Store</button>
                     <button className="btn btn-outline">App Store</button>
@@ -68,25 +68,20 @@ const Home = () => {
                     </div>
                 </div> {/* NEW: Close the centered container */}
             </div>
-            
-            {/* NEW: Added container for centering the '8 apps' text */}
-            <div className='container mx-auto px-4 py-8'>
-                <p className='text-center'>8 apps</p> {/* CHANGED: Used p tag and added text-center */}
-            </div>
 
 
             {/* =================================================== */}
             {/* FEATURED APPS SECTION */}
             {/* =================================================== */}
             <div className='container mx-auto px-4 py-12'>
-                <h2 className='text-4xl font-bold text-center mb-10'>Trending Apps</h2>
-                <p>Explore All Trending Apps on the Market developed by us</p>
+                <h2 className='text-4xl font-bold text-center mb-5'>Trending Apps</h2>
+                <p className='text-center mb-5'>Explore All Trending Apps on the Market developed by us</p>
                 {loading ? (
                     <p className='text-center text-xl'>Loading apps...</p>
                 ) : (
                     // CHANGED: Adjusted grid columns to fit the width of your Card component (285px wide card)
                     // The 'grid-cols-4' ensures 4 cards per row for desktop, displaying 8 apps in two neat rows.
-                    <div className='grid justify-items-center gap-y-10 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
+                    <div className='grid justify-items-center gap-y-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                         {featuredApps.map((app) => (
                             <Card key={app.id} app={app} /> // CHANGED: Using 'Card' component
                         ))}
@@ -94,8 +89,8 @@ const Home = () => {
                 )}
                 <div className='text-center mt-12'>
                     {/* Displaying total count from fetched data */}
-                    <button className="btn btn-primary bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-lg shadow-md">
-                        Show All ({totalApps}) 🚀
+                    <button className="btn btn-primary text-white px-6 py-3 rounded-lg shadow-md">
+                        Show All ({totalApps})
                     </button>
                 </div>
             </div>
