@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Card from './Card';
 
 const Apps = () => {
@@ -6,6 +6,9 @@ const Apps = () => {
     const [apps, setApps] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [newAppState, setNewAppState] = useState(false);
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -25,6 +28,33 @@ const Apps = () => {
         };
         fetchData();
     }, []);
+
+    // MOVED: useMemo MUST be defined here, BEFORE any conditional returns (like if (loading))
+    const filteredApps = useMemo(() => {
+        if (!searchTerm) {
+            return apps; // If no search term, return all apps
+        }
+        const lowerCaseSearch = searchTerm.toLowerCase();
+        return apps.filter(app => {
+            // CHANGED: Ensure filter logic only uses startsWith (for strict search as requested)
+            // If the user types 'tr', only titles starting with 'tr' pass.
+            const titleMatch = app.title ? app.title.toLowerCase().startsWith(lowerCaseSearch) : false;
+            
+            // NOTE: Description match is removed to enforce the strict "start of title" search behavior.
+            
+            return titleMatch; // Only return apps where the title starts with the search term
+        });
+    }, [apps, searchTerm]); // Dependency: recalculate when apps or searchTerm changes
+    
+    // MOVED: Handler for search input changes (doesn't have to be moved, but cleaner here)
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
+    
+    // ADDED: Calculate the count of currently displayed apps
+    const appsFound = filteredApps.length;
+
+
     if (loading) {
         return <div className="text-center py-10 text-xl">Loading applications...</div>;
     }
@@ -33,13 +63,14 @@ const Apps = () => {
     }
     
     return (
-        <div className='container mx-auto bg-[#f1f5e8] mb-20'>
+        <div className='container mx-auto bg-[#f1f5e8] mb-20 mt-15'>
             <h1 className='text-[48px] text-center'>Our All Applications</h1>
-            <p className='text-center'>Explore All Apps on the Market developed by us. We code for Millions</p>
+            <p className='text-center text-xl'>Explore All Apps on the Market developed by us. We code for Millions</p>
             <div className='flex justify-between mb-5 items-center'>
-                <h2 className='text-2xl font-semibold'>20 Apps Found</h2>
+                <h2 className='text-2xl font-semibold'>({appsFound}) Apps Found</h2>
                 {/* <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" /> */}
-                <label className="input">
+                
+                {/* <label className="input">
                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g
                         strokeLinejoin="round"
@@ -53,14 +84,46 @@ const Apps = () => {
                         </g>
                     </svg>
                     <input type="search" required placeholder="Search Apps" />
+                </label> */}
+
+                <label className="input">
+                    <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    </svg>
+                    {/* CHANGED: Connect input to state */}
+                    <input 
+                        type="search" 
+                        required 
+                        placeholder="Search Apps" 
+                        value={searchTerm} 
+                        onChange={handleSearchChange} 
+                    /> 
                 </label>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+            {/* CHANGED: Conditional rendering for list or empty message */}
+            {appsFound > 0 ? (
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+                    {filteredApps.map((app) => ( 
+                        <Card key={app.id} app={app} />
+                    ))}
+                </div>
+            ) : (
+                <div className="text-center py-20 text-xl text-gray-600 border border-dashed p-10 rounded-xl bg-white shadow-sm">
+                    No applications found matching "{searchTerm}".
+                </div>
+            )}
+
+            {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+                {filteredApps.map((app) => ( 
+                    <Card key={app.id} app={app} />
+                ))}
+            </div> */}
+
+            {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
                 {apps.map((app) => (
                     <Card key={app.id} app={app} />
                 ))}
-            </div>
+            </div> */}
 
         </div>
     );

@@ -2,21 +2,22 @@ import React from 'react';
 import {Facebook} from 'lucide-react';
 import { Linkedin } from 'lucide-react';
 import { Twitter } from 'lucide-react';
+import logoImg from '../assets/logo.png';
+import { Link } from 'react-router';
 
 const Footer = () => {
     return (
         <div className='bg-[#001931] py-8 text-white'>
             {/* <h1>Footer</h1> */}
-            <div className='flex justify-around h-16'>
-                <div>
-                    <img src="../assets/logo.png" alt="" />
-                    <h1>HERO.IO</h1>
-                </div>
-                <div>
-                    <h1>Social Links</h1>
-                    <ul className='flex gap-2'>
-                        <li><Twitter color="#ffffff" /></li>
-                        <li><Linkedin color="#ffffff" /></li>
+            <div className='w-11/12 mx-auto flex justify-between h-16'>
+                <Link className='flex gap-2 items-center'>
+                    <img src={logoImg} alt="" className='h-10' /> <h1 className='font-bold'>AppDroid</h1>
+                </Link>
+                <div className='space-y-3'>
+                    <h1 className='text-xl'>Social Links</h1>
+                    <ul className='flex'>
+                        <li className='mr-3'><Twitter color="#ffffff" /></li>
+                        <li className='mr-2'><Linkedin color="#ffffff" /></li>
                         <li><Facebook color="#fafafa" /></li>
                     </ul>
                 </div>

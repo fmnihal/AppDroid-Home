@@ -6,7 +6,7 @@ import { Github } from 'lucide-react';
 
 const Header = () => {
     return (
-        <header className="py-4 px-8 bg-white">
+        <header className="py-4 bg-white">
             <div className='w-11/12 mx-auto flex justify-between items-center'>
                 <div className="flex items-center gap-2">
                     <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-gray-800">
