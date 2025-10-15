@@ -20,16 +20,16 @@ export const router = createBrowserRouter([
                 element: <Apps />,
             },
             {
+                path: "apps/:appId",
+                element: <AppDetails />,
+            },
+            {
                 path: "installation",
                 element: <Installation />,
             },
             {
                 path: "*",
                 element: <ErrorPage />,
-            },
-            {
-                path: "apps/:appId",
-                element: <AppDetails />,
             },
         ]
     },
