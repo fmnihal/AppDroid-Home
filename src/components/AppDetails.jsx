@@ -2,9 +2,8 @@ import React, {useState, useEffect} from 'react';
 import downloadIcon from '../assets/icon-downloads.png';
 import ratingIcon from '../assets/icon-ratings.png';
 import reviewIcon from '../assets/icon-review.png';
-// import logoImg from '../assets/logo.png';
 import { useParams } from 'react-router-dom';
-
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 const AppDetails = () => {
     
     const { appId } = useParams();
@@ -13,10 +12,8 @@ const AppDetails = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Helper function to format large numbers (FIX: Moved inside the component)
     const formatNumber = (num) => {
         if (num === undefined || num === null) return 'N/A';
-        // Ensure num is a number before comparison
         if (typeof num !== 'number') num = parseFloat(num);
         if (isNaN(num)) return 'N/A';
         
@@ -32,14 +29,12 @@ const AppDetails = () => {
     useEffect(() => {
         const fetchAppDetails = async () => {
             try {
-                // Fetch the entire JSON data
                 const response = await fetch('/appsData.json'); 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                // 2. Find the specific app based on the ID
-                const foundApp = data.find(item => item.id === parseInt(appId, 10)); // Use parseInt if IDs are numbers
+                const foundApp = data.find(item => item.id === parseInt(appId, 10));
                 if (foundApp) {
                     setApp(foundApp);
                 } else {
@@ -66,69 +61,42 @@ const AppDetails = () => {
         );
     }
 
-    // Dynamic content extraction using the 'app' object
-    const downloads = formatNumber(app.downloads);
-    const ratingAvg = app.ratingAvg || 'N/A';
-    // Using the 'reviews' field from the sample data
-    const totalReviews = formatNumber(app.reviews); 
-    const appSize = app.size ? `${app.size} MB` : 'Unknown Size'; // Formatting size
-    const author = app.companyName || 'AppDroid'; // Using companyName as author
+    const appSize = app.size ? `${app.size} MB` : 'Unknown Size';
+    const author = app.companyName || 'AppDroid';
     const fallbackIcon = app.title ? app.title.charAt(0).toUpperCase() : '?';
+
+    const CustomTooltip = ({ active, payload }) => {
+        if (active && payload && payload.length) {
+            return (
+                <div className="p-2 bg-white rounded-md shadow-lg border border-gray-200">
+                    <p className="text-sm font-semibold text-[#001931]">{payload[0].payload.name}</p>
+                    <p className="text-xs text-gray-600">{`${formatNumber(payload[0].value)} Reviews`}</p>
+                </div>
+            );
+        }
+        return null;
+    };
+
+    const chartData = app.ratings || [];
+
+    const sortedChartData = [...chartData].sort((a, b) => {
+        const starA = parseInt(a.name.split(' ')[0]);
+        const starB = parseInt(b.name.split(' ')[0]);
+        return starB - starA; 
+    });
+
     
     return (
-        // <div className='w-11/12 mx-auto my-20'>
-        //     <div className='flex gap-10'>
-        //         <img src={logoImg} alt="" className='h-[100px]' />
-        //         <div>
-        //             <h1>SmPlan</h1>
-        //             <p>Developed by app.author</p>
-        //             <hr className='my-7' />
-                    // <div className='flex justify-start'>
-                    //     <div className='w-[150px]'>
-                    //         <img src={downloadIcon} alt="" />
-                    //         <p>Downloads</p>
-                    //         <h1>8M</h1>
-                    //     </div>
-                    //     <div className='w-[150px]'>
-                    //         <img src={ratingIcon} alt="" />
-                    //         <p>Average Ratings</p>
-                    //         <h1>4.9</h1>
-                    //     </div>
-                    //     <div className='w-[150px]'>
-                    //         <img src={reviewIcon} alt="" />
-                    //         <p>Total TReviews</p>
-                    //         <h1>54K</h1>
-                    //     </div>
-                    // </div>
-        //             <button className='btn bg-[#00d390] text-white border-none text-xl rounded-sm mt-7'>Install Now app.size</button>
-        //         </div>
-        //     </div>
-        //     <hr className='my-10' />
-        //     <h1 className='mb-6 text-xl text-[#001931] font-semibold'>Description</h1>
-        //     <p>This focus app takes the proven Pomodoro technique and makes it even more practical for modern lifestyles. Instead of just setting a timer, it builds a complete environment for deep work, minimizing distractions and maximizing concentration. Users can create custom work and break intervals, track how many sessions they complete each day, and review detailed statistics about their focus habits over time. The design is minimal and calming, reducing cognitive load so you can focus entirely on the task at hand. Notifications gently let you know when to pause and when to resume, helping you maintain a healthy rhythm between work and rest.</p>
-        // </div>
-
-
-
-
-
-
-
-
-
-
-
-
-        // Using max-w-7xl and mx-auto for responsive centering
+        
         <div className='max-w-7xl mx-auto px-4 py-8 my-10'>
             <div className='flex flex-col md:flex-row gap-8 items-start'>
-                {/* App Icon/Logo */}
+                
                 <div className='flex-shrink-0'>
                     {app.image ? (
                         <img 
                             src={app.image} 
                             alt={`${app.title} icon`} 
-                            className='h-75 shadow-md object-cover' 
+                            className='h-85 object-cover' 
                         />
                     ) : (
                         <div className='h-32 w-32 rounded-3xl shadow-xl border-4 border-gray-100 bg-gray-300 flex items-center justify-center'>
@@ -137,51 +105,28 @@ const AppDetails = () => {
                     )}
                 </div>
                 
-                {/* Details Section */}
                 <div className='flex-grow'>
                     <h1 className='text-5xl font-extrabold text-[#001931]'>{app.title}</h1>
-                    <p className='text-gray-600 mt-2 text-lg'>Developed by {author}</p>
+                    <p className='text-gray-600 mt-2 text-xl'>Developed by <span className='text-purple-600'>{author}</span></p>
                     
                     <hr className='my-7 border-gray-300' />
-                    
-                    {/* Stats Grid */}
-                    {/* <div className='grid grid-cols-3 gap-6 text-center'>
-                        <div className='p-4 bg-white rounded-xl shadow-md'>
-                            <img src={downloadIcon} alt="" />
-                            <p className='text-sm text-gray-500'>Downloads</p>
-                            <h1 className='text-2xl font-bold text-[#001931]'>{downloads}</h1>
-                        </div>
-                        <div className='p-4 bg-white rounded-xl shadow-md'>
-                            <img src={ratingIcon} alt="" />
-                            <p className='text-sm text-gray-500'>Average Rating</p>
-                            <h1 className='text-2xl font-bold text-[#001931]'>{ratingAvg}</h1>
-                        </div>
-                        <div className='p-4 bg-white rounded-xl shadow-md'>
-                            <img src={reviewIcon} alt="" />
-                            <p className='text-sm text-gray-500'>Total Reviews</p>
-                            <h1 className='text-2xl font-bold text-[#001931]'>{totalReviews}</h1>
-                        </div>
-                    </div> */}
-                    
                     <div className='flex justify-start'>
-                        <div className='w-[150px]'>
+                        <div className='w-[170px]'>
                             <img src={downloadIcon} alt="" />
-                            <p>Downloads</p>
-                            <h1>8M</h1>
+                            <p className='mt-3 text-xl'>Downloads</p>
+                            <h1 className='text-[40px] font-bold'>{formatNumber(app.downloads)}</h1>
                         </div>
-                        <div className='w-[150px]'>
+                        <div className='w-[170px]'>
                             <img src={ratingIcon} alt="" />
-                            <p>Average Ratings</p>
-                            <h1>4.9</h1>
+                            <p className='mt-3 text-xl'>Average Ratings</p>
+                            <h1 className='text-[40px] font-bold'>{app.ratingAvg}</h1>
                         </div>
-                        <div className='w-[150px]'>
+                        <div className='w-[170px]'>
                             <img src={reviewIcon} alt="" />
-                            <p>Total Reviews</p>
-                            <h1>54K</h1>
+                            <p className='mt-3 text-xl'>Total Reviews</p>
+                            <h1 className='text-[40px] font-bold'>{app.reviews}</h1>
                         </div>
                     </div>
-                    
-                    {/* Install Button */}
                     <button className='w-full md:w-auto btn bg-[#00d390] hover:bg-[#00c080] transition duration-200 text-white border-none text-xl font-semibold rounded-lg mt-7 px-10 py-3'>
                         Install Now ({appSize})
                     </button>
@@ -189,8 +134,50 @@ const AppDetails = () => {
             </div>
             
             <hr className='my-10 border-gray-300' />
-            
-            {/* Description Section */}
+            <div className="p-8 rounded-2xl border border-gray-100">
+                <h2 className='mb-6 text-3xl text-[#001931] font-bold'>Ratings Breakdown</h2>
+                <div className="h-64 w-full" tabIndex="-1"> 
+                    <ResponsiveContainer width="100%" height="100%">
+                        <BarChart
+                            data={sortedChartData}
+                            layout="vertical"
+                            barCategoryGap="50%"
+                            margin={{ top: 0, right: 30, left: 20, bottom: 0 }} 
+                        >
+                            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
+                            <XAxis
+                                type="number"
+                                axisLine={false}
+                                tickLine={false}
+                                stroke="#4b5563"
+                                tickFormatter={(value) => formatNumber(value)}
+                            />
+                            <YAxis
+                                type="category"
+                                dataKey="name" 
+                                axisLine={false}
+                                tickLine={false}
+                                stroke="#4b5563"
+                                fontSize={14}
+                                padding={{ top: 0, bottom: 0, left: 0, right: 0 }} 
+                            />
+                            <Tooltip
+                                content={<CustomTooltip />}
+                                cursor={false}
+                            />
+                            <Bar
+                                dataKey="count"
+                                fill="#f97316"
+                                radius={[4, 4, 4, 4]}
+                                barSize={32}
+                                activeBar={{ fill: '#ff8533' }} 
+                            />
+                        </BarChart>
+                    </ResponsiveContainer>
+                </div>
+            </div>
+
+            <hr className='my-10 border-gray-300' />
             <h1 className='mb-6 text-3xl text-[#001931] font-bold'>Description</h1>
             <p className='text-gray-700 leading-relaxed whitespace-pre-line'>
                 {app.description || "No detailed description is available for this application."}

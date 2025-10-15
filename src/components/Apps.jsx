@@ -33,7 +33,7 @@ const Apps = () => {
     }
     
     return (
-        <div className='container mx-auto bg-[#f1f5e8]'>
+        <div className='container mx-auto bg-[#f1f5e8] mb-20'>
             <h1 className='text-[48px] text-center'>Our All Applications</h1>
             <p className='text-center'>Explore All Apps on the Market developed by us. We code for Millions</p>
             <div className='flex justify-between mb-5 items-center'>

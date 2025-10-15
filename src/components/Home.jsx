@@ -71,13 +71,13 @@ const Home = () => {
             </div>
 
 
-            <div className='container mx-auto px-4 py-12'>
+            <div className='container mx-auto px-4 py-16'>
                 <h2 className='text-4xl font-bold text-center mb-5'>Trending Apps</h2>
                 <p className='text-center mb-5'>Explore All Trending Apps on the Market developed by us</p>
                 {loading ? (
                     <p className='text-center text-xl'>Loading apps...</p>
                 ) : (
-                    <div className='grid justify-items-center gap-y-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+                    <div className='grid gap-y-10 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                         {featuredApps.map((app) => (
                             <Card key={app.id} app={app} />
                         ))}
