@@ -15,9 +15,9 @@ const Card = ({app}) => {
     };
 
     return (
-        <div className='p-4 w-[317px] bg-white'>
+        <div className='p-4 bg-white'>
             <div className='bg-[#d9d9d9] rounded-md flex items-center justify-center overflow-hidden'>
-                <img src={app.image} alt={app.title} className="h-30 w-20 object-cover" />
+                <img src={app.image} alt={app.title} className="h-40 w-40 object-cover" />
             </div>
             <h1 className='text-xl my-4 font-medium'>{app.title}</h1>
             <div className='flex justify-between'>
