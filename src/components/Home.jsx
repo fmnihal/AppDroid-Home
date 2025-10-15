@@ -30,9 +30,9 @@ const Home = () => {
     return (
         <div className='bg-[#f1f5e8]'>
             <div id='banner' className='pt-10 bg-purple text-black w-11/12 container mx-auto text-center'>
-                <h1 className='mb-4 text-7xl'>We Build <span className='text-purple-700'>Productive</span> Apps</h1>
-                <p className='max-w-3xl mx-auto mb-5'>At AppDroid, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
-                <div className='mb-5 space-x-5'>
+                <h1 className='mb-8 text-7xl font-semibold'>We Build <br /><span className='text-purple-700'>Productive</span> Apps</h1>
+                <p className='max-w-3xl mx-auto mb-8 text-xl'>At AppDroid, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
+                <div className='mb-8 space-x-5'>
                     <Link to='https://play.google.com/store'>
                         <button className="btn btn-outline">Play Store</button>
                     </Link>

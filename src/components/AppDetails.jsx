@@ -4,6 +4,8 @@ import ratingIcon from '../assets/icon-ratings.png';
 import reviewIcon from '../assets/icon-review.png';
 import { useParams } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { formatNumber } from '../utils.js';
+
 const AppDetails = () => {
     
     const { appId } = useParams();
@@ -11,20 +13,21 @@ const AppDetails = () => {
     const [app, setApp] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [isInstalled, setIsInstalled] = useState(false);
 
-    const formatNumber = (num) => {
-        if (num === undefined || num === null) return 'N/A';
-        if (typeof num !== 'number') num = parseFloat(num);
-        if (isNaN(num)) return 'N/A';
+    // const formatNumber = (num) => {
+    //     if (num === undefined || num === null) return 'N/A';
+    //     if (typeof num !== 'number') num = parseFloat(num);
+    //     if (isNaN(num)) return 'N/A';
         
-        if (num >= 1000000) {
-            return (num / 1000000).toFixed(1) + 'M';
-        }
-        if (num >= 1000) {
-            return (num / 1000).toFixed(1) + 'K';
-        }
-        return num.toString();
-    };
+    //     if (num >= 1000000) {
+    //         return (num / 1000000).toFixed(1) + 'M';
+    //     }
+    //     if (num >= 1000) {
+    //         return (num / 1000).toFixed(1) + 'K';
+    //     }
+    //     return num.toString();
+    // };
 
     useEffect(() => {
         const fetchAppDetails = async () => {
@@ -49,6 +52,26 @@ const AppDetails = () => {
         };
         fetchAppDetails();
     }, [appId]);
+
+    const handleInstallClick = () => {
+        const id = parseInt(appId, 10);
+        // 1. Get current list from localStorage
+        let installedApps = JSON.parse(localStorage.getItem('installedApps') || '[]');
+        if (isInstalled) {
+            // UNINSTALL: Remove app ID
+            installedApps = installedApps.filter(appId => appId !== id);
+        } else {
+            // INSTALL: Add app ID if not already present
+            if (!installedApps.includes(id)) {
+                installedApps.push(id);
+            }
+        }
+        // 2. Save the updated list
+        localStorage.setItem('installedApps', JSON.stringify(installedApps));
+        // 3. Update local component state (toggles between installed/uninstalled)
+        setIsInstalled(prev => !prev);
+    };
+
     if (loading) {
         return <div className="text-center py-20 text-2xl font-semibold">Loading App Details...</div>;
     }
@@ -127,22 +150,41 @@ const AppDetails = () => {
                             <h1 className='text-[40px] font-bold'>{app.reviews}</h1>
                         </div>
                     </div>
-                    <button className='w-full md:w-auto btn bg-[#00d390] hover:bg-[#00c080] transition duration-200 text-white border-none text-xl font-semibold rounded-lg mt-7 px-10 py-3'>
+                    {/* <button className='w-full md:w-auto btn bg-[#00d390] hover:bg-[#00c080] transition duration-200 text-white border-none text-xl font-semibold rounded-lg mt-7 px-10 py-3'>
                         Install Now ({appSize})
+                    </button> */}
+                    
+                    {/* <button onClick={handleInstallClick} className={`w-full md:w-auto btn transition duration-200 text-white border-none text-xl font-semibold rounded-lg mt-7 px-10 py-3 ${
+                            isInstalled 
+                                ? 'bg-gray-500 hover:bg-gray-600 cursor-default' 
+                                : 'bg-[#00d390] hover:bg-[#00c080]'
+                                // hover:bg-[#00c080]
+                        }`} disabled={isInstalled}
+                    >
+                        {isInstalled ? 'Installed' : `Install Now (${appSize})`}
+                    </button> */}
+
+                    <button onClick={handleInstallClick} className={`w-full md:w-auto btn transition duration-200 text-white border-none text-xl font-semibold rounded-lg mt-7 px-10 py-3 ${
+                            isInstalled 
+                                ? 'bg-gray-500 hover:bg-gray-600 cursor-default' 
+                                : 'bg-[#00d390] hover:bg-[#00c080]'
+                        }`} disabled={isInstalled}
+                    >
+                        {isInstalled ? 'Installed' : `Install Now (${appSize})`}
                     </button>
                 </div>
             </div>
             
             <hr className='my-10 border-gray-300' />
             <div className="p-8 rounded-2xl border border-gray-100">
-                <h2 className='mb-6 text-3xl text-[#001931] font-bold'>Ratings Breakdown</h2>
-                <div className="h-64 w-full" tabIndex="-1"> 
+                <h2 className='mb-6 text-3xl text-[#001931] font-bold'>Ratings</h2>
+                <div className="h-64 w-full" tabIndex="-1">
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart
                             data={sortedChartData}
                             layout="vertical"
                             barCategoryGap="50%"
-                            margin={{ top: 0, right: 30, left: 20, bottom: 0 }} 
+                            margin={{ top: 0, right: 30, left: -10, bottom: 0 }} 
                         >
                             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
                             <XAxis
