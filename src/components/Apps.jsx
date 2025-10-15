@@ -7,7 +7,7 @@ const Apps = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
-    const [newAppState, setNewAppState] = useState(false);
+    // const [newAppState, setNewAppState] = useState(false);
     
     useEffect(() => {
         const fetchData = async () => {
@@ -35,14 +35,25 @@ const Apps = () => {
             return apps; // If no search term, return all apps
         }
         const lowerCaseSearch = searchTerm.toLowerCase();
+        // Split the search term into individual words (words are separated by non-word characters or spaces)
+        const searchWords = lowerCaseSearch.split(/\s+/).filter(word => word.length > 0);
+        if (searchWords.length === 0) {
+            return apps;
+        }
         return apps.filter(app => {
-            // CHANGED: Ensure filter logic only uses startsWith (for strict search as requested)
-            // If the user types 'tr', only titles starting with 'tr' pass.
-            const titleMatch = app.title ? app.title.toLowerCase().startsWith(lowerCaseSearch) : false;
-            
-            // NOTE: Description match is removed to enforce the strict "start of title" search behavior.
-            
-            return titleMatch; // Only return apps where the title starts with the search term
+            const lowerCaseTitle = app.title ? app.title.toLowerCase() : '';
+            // Check if the whole search term is included anywhere in the title (Fallback/Flexibility)
+            const overallMatch = lowerCaseTitle.includes(lowerCaseSearch);
+            // Check if the search term starts any word in the title (Prioritization)
+            const wordStartMatch = searchWords.every(word => {
+                // Split the app title into words for checking
+                const titleWords = lowerCaseTitle.split(/\s+/);
+                // Check if ANY word in the title starts with the current search word
+                return titleWords.some(titleWord => titleWord.startsWith(word));
+            });
+            // Return true if either the whole term is included OR if it starts any word
+            // This balances strictness and flexibility.
+            return overallMatch || wordStartMatch;
         });
     }, [apps, searchTerm]); // Dependency: recalculate when apps or searchTerm changes
     

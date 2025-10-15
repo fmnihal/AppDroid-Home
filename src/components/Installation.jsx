@@ -166,8 +166,8 @@ const Installation = () => {
                                 onChange={handleSortChange}
                                 className="p-2 border rounded-lg bg-white shadow-sm focus:ring-purple-500 focus:border-purple-500"
                             >
-                                <option value="size">Size (Largest First)</option>
-                                <option value="name">Name (A-Z)</option>
+                                <option value="size">Sort by Size</option>
+                                <option value="name">Sort by Name</option>
                             </select>
                         </div>
                     </div>
