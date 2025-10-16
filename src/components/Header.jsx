@@ -22,7 +22,7 @@ const Header = () => {
     );
     
     return (
-        <header className="py-3 bg-white shadow-md sticky top-0 z-50">
+        <header className="py-4 bg-white shadow-md sticky top-0 z-50">
             <div className='w-11/12 mx-auto flex justify-between items-center'>
                 <div className="flex items-center gap-2">
                     <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-gray-800 cursor-pointer">
