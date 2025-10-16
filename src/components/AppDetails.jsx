@@ -5,6 +5,7 @@ import reviewIcon from '../assets/icon-review.png';
 import { useParams } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { formatNumber } from '../utils.js';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AppDetails = () => {
     
@@ -51,6 +52,7 @@ const AppDetails = () => {
         }
         localStorage.setItem('installedApps', JSON.stringify(installedApps));
         setIsInstalled(prev => !prev);
+        toast(`${app.title} has been installed`);
     };
 
     if (loading) {
@@ -140,6 +142,7 @@ const AppDetails = () => {
                     >
                         {isInstalled ? 'Installed' : `Install Now (${appSize})`}
                     </button>
+                    <ToastContainer></ToastContainer>
                 </div>
             </div>
             

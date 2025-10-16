@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 // --- Utility Functions Included Here to avoid external import errors ---
 
@@ -26,10 +27,11 @@ const getInstalledAppIds = () => {
     return JSON.parse(localStorage.getItem('installedApps') || '[]');
 };
 
-const uninstallApp = (id) => {
+const uninstallApp = (id, appTitle) => {
     let installedApps = getInstalledAppIds();
     installedApps = installedApps.filter(appId => appId !== id);
     localStorage.setItem('installedApps', JSON.stringify(installedApps));
+    alert(`${appTitle} has been successfully uninstalled`);
 };
 
 const Installation = () => {
@@ -61,9 +63,9 @@ const Installation = () => {
         fetchInstalledApps();
     }, []);
 
-    const handleUninstall = (id) => {
-        uninstallApp(id);
-        fetchInstalledApps(); 
+    const handleUninstall = (id, title) => {
+        uninstallApp(id, title);
+        fetchInstalledApps();
     };
 
     const handleSortChange = (event) => {
@@ -122,7 +124,7 @@ const Installation = () => {
                     </div>
                 </div>
 
-                <button onClick={() => handleUninstall(app.id)} className='btn bg-green-500 hover:bg-green-600 text-white border-none text-md font-semibold rounded-lg px-4 py-2 transition duration-200'
+                <button onClick={() => handleUninstall(app.id, app.title)} className='btn bg-green-500 hover:bg-green-600 text-white border-none text-md font-semibold rounded-lg px-4 py-2 transition duration-200'
                 >Uninstall</button>
             </div>
         );

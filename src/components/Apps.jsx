@@ -92,8 +92,8 @@ const Apps = () => {
             ) : (
                 <div className='text-center'>
                     <img src={AppError} alt="" className='mx-auto mt-15 mb-12' />
-                    <h1 className='text-5xl mb-6'>Oops..App Not Found</h1>
-                    <p className='mb-4 text-xl'>The app you are requesting is not on our app. Try another app.</p>
+                    <h1 className='text-5xl mb-6'>OOPS!! APP NOT FOUND</h1>
+                    <p className='mb-4 text-xl'>The app you are requesting is not found on our app. Please try another apps</p>
                     <Link to="/">
                         <button className='btn bg-purple-600 text-white hover:bg-purple-700 border-none text-xl'>Go Back!</button>
                     </Link>
