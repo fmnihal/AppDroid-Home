@@ -8,7 +8,6 @@ import { Link } from 'react-router';
 const Footer = () => {
     return (
         <div className='bg-[#001931] py-8 text-white'>
-            {/* <h1>Footer</h1> */}
             <div className='w-11/12 mx-auto flex justify-between h-16'>
                 <Link className='flex gap-2 items-center'>
                     <img src={logoImg} alt="" className='h-10' /> <h1 className='font-bold'>AppDroid</h1>

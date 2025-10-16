@@ -1,5 +1,3 @@
-// src/utils.js
-
 /**
  * Formats large numbers (downloads, reviews) into K (thousands) or M (millions).
  * @param {number | string} num - The number to format.

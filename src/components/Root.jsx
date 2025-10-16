@@ -5,7 +5,6 @@ import Header from './Header'
 function Root() {
   return (
     <div className="min-h-screen flex flex-col text-gray-800">
-      {/* <h1>App.jsx</h1> */}
       <Header></Header>
       <main className="flex-grow">
         <Outlet></Outlet>

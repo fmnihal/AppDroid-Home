@@ -22,24 +22,21 @@ const formatNumber = (num) => {
     return num.toString();
 };
 
-// Helper function to get installed app IDs from localStorage
 const getInstalledAppIds = () => {
     return JSON.parse(localStorage.getItem('installedApps') || '[]');
 };
 
-// Helper function to remove an app ID from localStorage
 const uninstallApp = (id) => {
     let installedApps = getInstalledAppIds();
     installedApps = installedApps.filter(appId => appId !== id);
     localStorage.setItem('installedApps', JSON.stringify(installedApps));
 };
 
-
 const Installation = () => {
     const [installedApps, setInstalledApps] = useState([]);
     const [loading, setLoading] = useState(true);
     const [totalApps, setTotalApps] = useState(0);
-    const [sortType, setSortType] = useState('size'); // State for sorting
+    const [sortType, setSortType] = useState('size');
 
     const fetchInstalledApps = async () => {
         setLoading(true);
@@ -69,27 +66,22 @@ const Installation = () => {
         fetchInstalledApps(); 
     };
 
-    // Handler for when the sort dropdown value changes
     const handleSortChange = (event) => {
         setSortType(event.target.value);
     };
 
-    // Memoized sorting logic
     const sortedApps = useMemo(() => {
         let sortableApps = [...installedApps];
 
         if (sortType === 'size') {
-            // Sort by size (descending - largest first)
             sortableApps.sort((a, b) => (b.size || 0) - (a.size || 0));
         } else if (sortType === 'name') {
-            // Sort by name (A-Z)
             sortableApps.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
         }
 
         return sortableApps;
-    }, [installedApps, sortType]); // Dependencies: only runs when installedApps or sortType changes
+    }, [installedApps, sortType]);
     
-    // Component to render a single installed app item
     const InstalledAppItem = ({ app }) => {
         const downloads = app.downloads ? formatNumber(app.downloads) : 'N/A';
         const rating = app.ratingAvg || 'N/A';
@@ -99,7 +91,6 @@ const Installation = () => {
         return (
             <div className="flex justify-between items-center bg-white p-4 my-3 rounded-xl shadow-md border border-gray-100">
                 <div className="flex items-center">
-                    {/* App Icon/Logo */}
                     <Link to={`/apps/${app.id}`} className='flex-shrink-0 mr-4'>
                         {app.image ? (
                             <img
@@ -115,27 +106,22 @@ const Installation = () => {
                         )}
                     </Link>
                     
-                    {/* App Details */}
                     <div>
                         <Link to={`/apps/${app.id}`} className='text-lg font-semibold text-[#001931] hover:text-purple-600 transition duration-150'>
                             {app.title}
                         </Link>
                         <div className="flex items-center text-sm text-gray-500 mt-1">
-                            {/* Download Count */}
                             <span className="mr-3 flex items-center">
                                 <span className='text-green-500 mr-1'>↓</span>{downloads}
                             </span>
-                            {/* Rating */}
                             <span className="mr-3 flex items-center">
                                 <span className='text-yellow-500 mr-1'>★</span>{rating}
                             </span>
-                            {/* Size */}
                             <span className="mr-3">{size}</span>
                         </div>
                     </div>
                 </div>
 
-                {/* Uninstall Button, changed to red for clarity */}
                 <button onClick={() => handleUninstall(app.id)} className='btn bg-green-500 hover:bg-green-600 text-white border-none text-md font-semibold rounded-lg px-4 py-2 transition duration-200'
                 >Uninstall</button>
             </div>
@@ -144,7 +130,6 @@ const Installation = () => {
 
     return (
         <div className='max-w-7xl mx-auto px-4 py-8 my-10'>
-            {/* Header section matching the Figma */}
             <div className='text-center py-10 bg-gray-50 rounded-xl mb-8 shadow-inner'>
                 <h1 className='text-5xl font-extrabold text-[#001931] mb-2'>Your Installed Apps</h1>
                 <p className='text-gray-600 text-lg'>Explore All Trending Apps on the Market developed by us</p>
@@ -157,7 +142,6 @@ const Installation = () => {
                     <div className='flex justify-between items-center mb-4'>
                         <h2 className='text-xl font-bold text-[#001931]'>{totalApps} {totalApps === 1 ? 'App' : 'Apps'} Found</h2>
                         
-                        {/* Sorting UI: connected to state and handler */}
                         <div className='text-gray-600'>
                             <label htmlFor="sort-select" className="mr-2 text-sm font-medium">Sort By:</label>
                             <select 
@@ -173,7 +157,6 @@ const Installation = () => {
                     </div>
                     
                     <div className='space-y-4'>
-                        {/* Renders the newly sorted array */}
                         {sortedApps.length > 0 ? (
                             sortedApps.map(app => (
                                 <InstalledAppItem key={app.id} app={app} />

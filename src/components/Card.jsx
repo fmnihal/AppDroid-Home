@@ -19,23 +19,11 @@ const Card = ({app}) => {
 
         <Link to={`/apps/${app.id}`} className='block hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 rounded-lg'>
             <div className='p-4 h-full bg-white'>
-                {/* Image Container */}
                 <div className='bg-[#d9d9d9] rounded-md h-[200px] flex items-center justify-center overflow-hidden'>
                     <img src={app.image} alt={app.title} className="h-40 w-40 object-cover" />
                 </div>
                 
                 <h1 className='text-xl my-4 font-medium text-[#001931]'>{app.title}</h1>
-                
-                {/* <div className='flex justify-between items-center'>
-                    <p className='flex items-center gap-1 px-3 py-2 rounded-sm bg-[#f1f5e8] text-[#00d390]'>
-                        <img src={iconDownloads} alt="" />
-                        {formatDownloads(app.downloads)}
-                    </p>
-                    <p className='flex items-center gap-1 px-3 py-2 rounded-sm bg-[#fff0e1] text-[#ff8811]'>
-                        <img src={iconRatings} alt="" />
-                        {app.ratingAvg}
-                    </p>
-                </div> */}
 
                 <div className='flex justify-between'>
                     <p className='flex items-center gap-1 px-3 py-2 rounded-sm bg-[#f1f5e8] text-[#00d390]'>

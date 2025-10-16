@@ -15,20 +15,6 @@ const AppDetails = () => {
     const [error, setError] = useState(null);
     const [isInstalled, setIsInstalled] = useState(false);
 
-    // const formatNumber = (num) => {
-    //     if (num === undefined || num === null) return 'N/A';
-    //     if (typeof num !== 'number') num = parseFloat(num);
-    //     if (isNaN(num)) return 'N/A';
-        
-    //     if (num >= 1000000) {
-    //         return (num / 1000000).toFixed(1) + 'M';
-    //     }
-    //     if (num >= 1000) {
-    //         return (num / 1000).toFixed(1) + 'K';
-    //     }
-    //     return num.toString();
-    // };
-
     useEffect(() => {
         const fetchAppDetails = async () => {
             try {
@@ -55,20 +41,15 @@ const AppDetails = () => {
 
     const handleInstallClick = () => {
         const id = parseInt(appId, 10);
-        // 1. Get current list from localStorage
         let installedApps = JSON.parse(localStorage.getItem('installedApps') || '[]');
         if (isInstalled) {
-            // UNINSTALL: Remove app ID
             installedApps = installedApps.filter(appId => appId !== id);
         } else {
-            // INSTALL: Add app ID if not already present
             if (!installedApps.includes(id)) {
                 installedApps.push(id);
             }
         }
-        // 2. Save the updated list
         localStorage.setItem('installedApps', JSON.stringify(installedApps));
-        // 3. Update local component state (toggles between installed/uninstalled)
         setIsInstalled(prev => !prev);
     };
 
@@ -150,19 +131,6 @@ const AppDetails = () => {
                             <h1 className='text-[40px] font-bold'>{app.reviews}</h1>
                         </div>
                     </div>
-                    {/* <button className='w-full md:w-auto btn bg-[#00d390] hover:bg-[#00c080] transition duration-200 text-white border-none text-xl font-semibold rounded-lg mt-7 px-10 py-3'>
-                        Install Now ({appSize})
-                    </button> */}
-                    
-                    {/* <button onClick={handleInstallClick} className={`w-full md:w-auto btn transition duration-200 text-white border-none text-xl font-semibold rounded-lg mt-7 px-10 py-3 ${
-                            isInstalled 
-                                ? 'bg-gray-500 hover:bg-gray-600 cursor-default' 
-                                : 'bg-[#00d390] hover:bg-[#00c080]'
-                                // hover:bg-[#00c080]
-                        }`} disabled={isInstalled}
-                    >
-                        {isInstalled ? 'Installed' : `Install Now (${appSize})`}
-                    </button> */}
 
                     <button onClick={handleInstallClick} className={`w-full md:w-auto btn transition duration-200 text-white border-none text-xl font-semibold rounded-lg mt-7 px-10 py-3 ${
                             isInstalled 
