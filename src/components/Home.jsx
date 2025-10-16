@@ -50,7 +50,7 @@ const Home = () => {
                 <div className='container mx-auto px-4'>
                     <h1 className='mb-10 text-3xl font-bold text-center'>Trusted by Millions, Built for You</h1> 
                     
-                    <div className='flex justify-around items-center text-center'>
+                    <div className='flex flex-col md:flex-row justify-around items-center text-center'>
                         <div className='p-4'>
                             <p className='text-lg'>Total Downloads</p>
                             <h1 className='text-4xl font-extrabold mt-1'>209.6M</h1>
@@ -77,7 +77,7 @@ const Home = () => {
                 {loading ? (
                     <p className='text-center text-xl'>Loading apps...</p>
                 ) : (
-                    <div className='grid gap-y-10 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+                    <div className='grid gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                         {featuredApps.map((app) => (
                             <Card key={app.id} app={app} />
                         ))}

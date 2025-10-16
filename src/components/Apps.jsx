@@ -64,8 +64,8 @@ const Apps = () => {
     return (
         <div className='container mx-auto bg-[#f1f5e8] mb-20 mt-15'>
             <h1 className='text-[48px] text-center'>Our All Applications</h1>
-            <p className='text-center text-xl'>Explore All Apps on the Market developed by us. We code for Millions</p>
-            <div className='flex justify-between mb-5 items-center'>
+            <p className='text-center text-xl my-5'>Explore All Apps on the Market developed by us. We code for Millions</p>
+            <div className='flex justify-between mb-5 items-center px-5'>
                 <h2 className='text-2xl font-semibold'>({appsFound}) Apps Found</h2>
 
                 <label className="input">
@@ -82,7 +82,7 @@ const Apps = () => {
             </div>
 
             {appsFound > 0 ? (
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-5'>
                     {filteredApps.map((app) => ( 
                         <Card key={app.id} app={app} />
                     ))}
