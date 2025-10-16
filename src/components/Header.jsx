@@ -27,7 +27,7 @@ const Header = () => {
                 <div className="flex items-center gap-2">
                     <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-gray-800 cursor-pointer">
                         <img src={logoImg} alt="AppDroid Logo" className='h-10' />
-                        <h1 className='text-purple'>AppDroid</h1>
+                        <h1 className='text-purple-600'>AppDroid</h1>
                     </Link>
                 </div>
                 

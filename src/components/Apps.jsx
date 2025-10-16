@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Card from './Card';
+import AppError from '../assets/App-Error.png';
+import { Link } from 'react-router';
 
 const Apps = () => {
     
@@ -88,8 +90,13 @@ const Apps = () => {
                     ))}
                 </div>
             ) : (
-                <div className="text-center py-20 text-xl text-gray-600 border border-dashed p-10 rounded-xl bg-white shadow-sm">
-                    No applications found matching "{searchTerm}".
+                <div className='text-center'>
+                    <img src={AppError} alt="" className='mx-auto mt-15 mb-12' />
+                    <h1 className='text-5xl mb-6'>Oops..App Not Found</h1>
+                    <p className='mb-4 text-xl'>The app you are requesting is not on our app. Try another app.</p>
+                    <Link to="/">
+                        <button className='btn bg-purple-600 text-white hover:bg-purple-700 border-none text-xl'>Go Back!</button>
+                    </Link>
                 </div>
             )}
 

@@ -130,8 +130,8 @@ const Installation = () => {
 
     return (
         <div className='max-w-7xl mx-auto px-4 py-8 my-10'>
-            <div className='text-center py-10 bg-gray-50 rounded-xl mb-8 shadow-inner'>
-                <h1 className='text-5xl font-extrabold text-[#001931] mb-2'>Your Installed Apps</h1>
+            <div className='text-center py-10 rounded-xl mb-5'>
+                <h1 className='text-5xl font-extrabold text-[#001931] mb-3'>Your Installed Apps</h1>
                 <p className='text-gray-600 text-lg'>Explore All Trending Apps on the Market developed by us</p>
             </div>
             
@@ -143,12 +143,12 @@ const Installation = () => {
                         <h2 className='text-xl font-bold text-[#001931]'>{totalApps} {totalApps === 1 ? 'App' : 'Apps'} Found</h2>
                         
                         <div className='text-gray-600'>
-                            <label htmlFor="sort-select" className="mr-2 text-sm font-medium">Sort By:</label>
+                            <label htmlFor="sort-select" className="mr-2 text-sm font-medium"></label>
                             <select 
                                 id="sort-select"
                                 value={sortType}
                                 onChange={handleSortChange}
-                                className="p-2 border rounded-lg bg-white shadow-sm focus:ring-purple-500 focus:border-purple-500"
+                                className="p-2 rounded-lg bg-white shadow-sm focus:ring-purple-500 focus:border-purple-500"
                             >
                                 <option value="size">Sort by Size</option>
                                 <option value="name">Sort by Name</option>
@@ -162,7 +162,7 @@ const Installation = () => {
                                 <InstalledAppItem key={app.id} app={app} />
                             ))
                         ) : (
-                            <div className="text-center py-10 text-xl text-gray-600 border border-dashed p-10 rounded-xl bg-white shadow-sm">
+                            <div className="text-center text-xl text-gray-600 p-10">
                                 You haven't installed any apps yet. Install one from the Apps page!
                             </div>
                         )}
